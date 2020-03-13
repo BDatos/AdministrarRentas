@@ -1,0 +1,43 @@
+﻿@model AdministarRenta.Models.Alquilado
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Alquilado</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Huésped)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Huésped.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.casa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.casa.Ubicacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReservacionDias)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReservacionDias)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Valores)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valores)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FechaEntrada">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AdministarRenta.Models.Alquilado>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Huésped)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.casa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservacionDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valores)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Huésped.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.casa.Ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservacionDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valores)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FechaEntrada">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FechaEntrada">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FechaEntrada">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

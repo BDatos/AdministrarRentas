@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdministarRenta.Models.ServicioPrestado>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Huésped)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servicios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resumen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Huésped.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Servicios.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resumen)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ServiciosPrestadoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ServiciosPrestadoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ServiciosPrestadoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

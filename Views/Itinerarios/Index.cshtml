@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AdministarRenta.Models.Itinerario>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Huesped)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidasDeDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jefe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recorrido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resumen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Huesped.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidasDeDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jefe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recorrido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resumen)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FechaRecogida">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FechaRecogida">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FechaRecogida">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
